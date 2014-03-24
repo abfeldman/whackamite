@@ -23,6 +23,14 @@ AM_INIT_AUTOMAKE([-Wall silent-rules])
 
 # Checks for library functions.
 
+# Checks for dependencies.
+
+AX_OPENCV
+if test $ac_cv_have_opencv = no ; then
+  AC_MSG_ERROR([OpenCV is required to build Whack-A-Mite.])
+fi
+
+
 AC_CONFIG_FILES([Makefile
                  src/Makefile])
 AC_OUTPUT
